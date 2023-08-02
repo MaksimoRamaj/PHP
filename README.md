@@ -1,1 +1,1 @@
-# PHP - Read files from a directory and displays it content on a simple html table
+# PHP - Read files from a directory and displays their (files) content on a simple html table
