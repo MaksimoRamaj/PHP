@@ -25,16 +25,22 @@ global$total; <!doctype html>
                 <th scope="row"><?= dateFormatter($file['date']) ?></th>
                 <td><?= $file['check'] ?></td>
                 <td><?= $file['description'] ?></td>
-                <td><?= amountFormmater($file['amount']) ?></td>
+                <?php if ($file['amount']<0) :?>
+                    <td style="color:red;"><?= amountFormmater($file['amount']) ?></td>
+                <?php else: ?>
+                <td style="color:green;"><?= amountFormmater($file['amount']) ?></td>
+                <?php endif ?>
             </tr>
         <?php endforeach ?>
     <?php endif ?>
-    <tr>
-        <th scope="row">Incomes: <?= amountFormmater($total['income']) ?></th>
-        <th>Expenses: <?= amountFormmater($total['expenses']) ?></th>
-        <th>Total: <?= amountFormmater($total['total']) ?></th>
-    </tr>
     </tbody>
+    <footer>
+        <tr>
+            <th scope="row" style="color:green;">Incomes: <?= amountFormmater($total['income']) ?></th>
+            <th style="color:red;">Expenses: <?= amountFormmater($total['expenses']) ?></th>
+            <th>Total: <?= amountFormmater($total['total']) ?></th>
+        </tr>
+    </footer>
 </table>
 </body>
 </html>
